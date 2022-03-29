@@ -1,6 +1,6 @@
 package com.sson.masker;
 
-public enum MaskType {
+public enum MaskingType {
     NAME,
     PHONE_NUMBER
 }

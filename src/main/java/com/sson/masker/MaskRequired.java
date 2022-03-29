@@ -13,5 +13,5 @@ import java.lang.annotation.Target;
 @JacksonAnnotationsInside
 @JsonSerialize(using = MaskingPropertySerializer.class)
 public @interface MaskRequired {
-    MaskType type();
+    MaskingType type();
 }

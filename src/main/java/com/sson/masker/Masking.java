@@ -1,23 +1,11 @@
 package com.sson.masker;
 
+import com.sson.masker.factory.Masker;
+import com.sson.masker.factory.MaskingFactory;
+
 public class Masking {
-
-    public static String mask(MaskType type, String value){
-        switch (type){
-            case NAME:
-                return maskName(value);
-            case PHONE_NUMBER:
-                return maskPhoneNumber(value);
-            default:
-                return value;
-        }
-    }
-
-    private static String maskName(String value) {
-        return value + "_maskName";
-    }
-
-    private static String maskPhoneNumber(String value) {
-        return value + "_maskPhoneNumber";
+    public static String mask(MaskingType type, String value){
+        Masker masker = MaskingFactory.get(type);
+        return masker.mask(value);
     }
 }

@@ -1,7 +1,7 @@
 package com.sson.model;
 
 import com.sson.masker.MaskRequired;
-import com.sson.masker.MaskType;
+import com.sson.masker.MaskingType;
 import lombok.Getter;
 import lombok.ToString;
 
@@ -11,10 +11,10 @@ public class Person {
 
     private String employeeId;
 
-    @MaskRequired(type = MaskType.NAME)
+    @MaskRequired(type = MaskingType.NAME)
     private String name;
 
-    @MaskRequired(type = MaskType.PHONE_NUMBER)
+    @MaskRequired(type = MaskingType.PHONE_NUMBER)
     private String phoneNumber;
 
     public Person(String employeeId, String name, String phoneNumber) {
