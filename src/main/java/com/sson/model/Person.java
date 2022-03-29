@@ -9,7 +9,7 @@ import lombok.ToString;
 @ToString
 public class Person {
 
-    private String employeeId;`
+    private String employeeId;
 
     @MaskRequired(type = MaskType.NAME)
     private String name;
