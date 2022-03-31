@@ -3,10 +3,12 @@ package com.sson.model;
 import com.sson.masker.MaskRequired;
 import com.sson.masker.MaskingType;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 @Getter
 @ToString
+@NoArgsConstructor
 public class Person {
 
     private String employeeId;
