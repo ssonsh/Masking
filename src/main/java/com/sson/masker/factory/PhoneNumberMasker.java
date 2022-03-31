@@ -26,15 +26,15 @@ public class PhoneNumberMasker implements Masker{
 
     private String maskingByPattern(String pattern, String value) {
         Matcher matcher = Pattern.compile(pattern).matcher(value);
-        if(matcher.find()){
-            String target = matcher.group(2);
-            int length = target.length();
-            char[] c = new char[length];
-            Arrays.fill(c, '*');
-
-            return value.replace(target, String.valueOf(c));
+        if(!matcher.find()){
+            return value;
         }
-        return value;
+        String target = matcher.group(2);
+        int length = target.length();
+        char[] c = new char[length];
+        Arrays.fill(c, '*');
+
+        return value.replace(target, String.valueOf(c));
     }
 
     private boolean isExistHyphen(String value) {

@@ -19,13 +19,17 @@ public class Person {
     @MaskRequired(type = MaskingType.PHONE_NUMBER)
     private String phoneNumber;
 
-    public Person(String employeeId, String name, String phoneNumber) {
+    @MaskRequired(type = MaskingType.EMAIL_ADDRESS)
+    private String emailAddress;
+
+    public Person(String employeeId, String name, String phoneNumber, String emailAddress) {
         this.employeeId = employeeId;
         this.name = name;
         this.phoneNumber = phoneNumber;
+        this.emailAddress = emailAddress;
     }
 
-    public static Person of(String employeeId, String name, String phoneNumber) {
-        return new Person(employeeId, name, phoneNumber);
+    public static Person of(String employeeId, String name, String phoneNumber, String emailAddress) {
+        return new Person(employeeId, name, phoneNumber, emailAddress);
     }
 }
