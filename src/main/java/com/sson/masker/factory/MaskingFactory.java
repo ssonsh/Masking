@@ -2,9 +2,6 @@ package com.sson.masker.factory;
 
 import com.sson.masker.MaskingType;
 
-/*
-https://goddaehee.tistory.com/236
- */
 public class MaskingFactory {
     public static Masker get(MaskingType type) {
         switch (type){
