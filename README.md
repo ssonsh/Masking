@@ -1,6 +1,7 @@
 # Spring, Annotation 기반에 개인정보 마스킹 처리 
 
-# 애노테이션 기반으로 개인정보 마스킹하기
+# Notion Link
+https://five-cosmos-fb9.notion.site/88d0828288b847c69d42231e1bf3daf9
 
 ### 비즈니스 요구사항
 
