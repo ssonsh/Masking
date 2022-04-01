@@ -84,10 +84,15 @@ public class MaskerTest {
         log.info("maskedPerson[2] : {}", maskedPerson2);
 
 
-        Person person3 = Person.of("emp_0001", "손성현임", "010-257-4164", "@asodifn");
+        Person person3 = Person.of("emp_0001", "손성현임", "010-257-4164", "@naver.com");
         log.info("person[3] : {}", person3);
         Person maskedPerson3 = new ObjectMapper().readValue(new ObjectMapper().writeValueAsString(person3), new TypeReference<Person>() {});
         log.info("maskedPerson[3] : {}", maskedPerson3);
 
+        Assertions.assertAll(
+            () -> Assertions.assertEquals(maskedPerson1.getEmailAddress(), "cho*****@gmail.com"),
+            () -> Assertions.assertEquals(maskedPerson2.getEmailAddress(), "s*@midasin.com"),
+            () -> Assertions.assertEquals(maskedPerson3.getEmailAddress(), "@naver.com")
+        );
     }
 }
