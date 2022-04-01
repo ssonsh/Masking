@@ -428,3 +428,32 @@ PhoneNumberTest
 ```
 
 EmailAddressTest
+
+```java
+    @Test
+void emailAddressMasker() throws JsonProcessingException {
+
+    Person person1 = Person.of("emp_0001", "손성", "01020574164", "chosunci@gmail.com");
+    log.info("person[1] : {}", person1);
+    Person maskedPerson1 = new ObjectMapper().readValue(new ObjectMapper().writeValueAsString(person1), new TypeReference<Person>() {});
+    log.info("maskedPerson[1] : {}", maskedPerson1);
+
+
+    Person person2 = Person.of("emp_0001", "손성현", "010-2057-4164", "ss@midasin.com");
+    log.info("person[2] : {}", person2);
+    Person maskedPerson2 = new ObjectMapper().readValue(new ObjectMapper().writeValueAsString(person2), new TypeReference<Person>() {});
+    log.info("maskedPerson[2] : {}", maskedPerson2);
+
+
+    Person person3 = Person.of("emp_0001", "손성현임", "010-257-4164", "@naver.com");
+    log.info("person[3] : {}", person3);
+    Person maskedPerson3 = new ObjectMapper().readValue(new ObjectMapper().writeValueAsString(person3), new TypeReference<Person>() {});
+    log.info("maskedPerson[3] : {}", maskedPerson3);
+
+    Assertions.assertAll(
+        () -> Assertions.assertEquals(maskedPerson1.getEmailAddress(), "cho*****@gmail.com"),
+        () -> Assertions.assertEquals(maskedPerson2.getEmailAddress(), "s*@midasin.com"),
+        () -> Assertions.assertEquals(maskedPerson3.getEmailAddress(), "@naver.com")
+    );
+}
+```
